@@ -1,0 +1,30 @@
+.paginator {
+    font-size: 1.2rem;
+
+    &__button {
+        color: white;
+        background-color: red;
+        border: none;
+        border-radius: 50px;
+        padding: 5px 16px;
+        width: auto;
+        font-size: 1.2rem;
+    }
+    button:hover {
+        cursor:pointer;
+    }
+    button:disabled,
+    button[disabled]{
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+        cursor: not-allowed;
+
+    }
+
+    &__info {
+        display: inline-block;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

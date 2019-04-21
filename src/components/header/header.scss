@@ -1,0 +1,13 @@
+.header {
+    border-bottom: 1px solid red;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    &__logo {
+        // background-image: url("../../logo.png");
+        // background-repeat: no-repeat;
+        width: 430px;
+        height: 100px;
+    }
+}
