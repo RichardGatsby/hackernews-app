@@ -11,6 +11,7 @@ import * as serviceWorker from './serviceWorker';
 // to fix this we should implement redux or
 // introduce higher root level component to hold the state
 const routing = (
+    //TODO: Refactor Router to router.tsx
     <Router>
         <div className="app">
             <div className="app__container">
