@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import history from 'history';
 import IItem from '../../models/IItem';
 import Utils from '../../utilities/utils';
-import { Link } from 'react-router-dom';
 import './news-list.scss';
 
 
@@ -12,9 +10,6 @@ interface NewsListProps {
 }
 export default class NewsList extends Component<NewsListProps, any> {
 
-    // showComments(id: number) {
-    //     history.push('/comments/' + id);
-    // }
     render() {
         return (
             <ul className="news-list">

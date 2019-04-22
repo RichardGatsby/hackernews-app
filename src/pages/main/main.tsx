@@ -27,7 +27,7 @@ class Main extends Component<RouteComponentProps, IMainState> {
       loading: false,
     };
 
-    this.getBestStoriesIdList = this.getBestStoriesIdList.bind(this);
+    //Bind the methods that are going to be passed to child components
     this.incrementPageNumber = this.incrementPageNumber.bind(this);
     this.decrementPageNumber = this.decrementPageNumber.bind(this);
     this.showStoriesByPage = this.showStoriesByPage.bind(this);
@@ -72,8 +72,9 @@ class Main extends Component<RouteComponentProps, IMainState> {
     }
   }
 
+  //Set state is async so pass a function to prevent accessing wrong state
   setLoading(loading: boolean) {
-    this.setState({ loading: loading });
+    this.setState(state => ({ loading: loading }));
   }
   setStories(stories: IItem[]) {
     this.setState(state => ({ stories: state.stories.concat(stories) }))
@@ -81,6 +82,7 @@ class Main extends Component<RouteComponentProps, IMainState> {
 
   decrementPageNumber() {
     if (this.state.pageNumber > 0) {
+      //setState is async so use a callback function to make sure state has changed before going forward
       this.setState({ pageNumber: this.state.pageNumber - 1 }, () => {
         //After updating the pagenumber download the stories
         this.getStoriesByPageNumber(this.state.pageNumber);
@@ -89,6 +91,7 @@ class Main extends Component<RouteComponentProps, IMainState> {
   }
   incrementPageNumber() {
     if ((this.state.pageNumber + 1) * this.state.postsPerpage < this.state.storieIds.length) {
+      //setState is async so use a callback function to make sure state has changed before going forward
       this.setState({ pageNumber: this.state.pageNumber + 1 }, () => {
         //After updating the pagenumber download the stories
         this.getStoriesByPageNumber(this.state.pageNumber);
@@ -99,11 +102,10 @@ class Main extends Component<RouteComponentProps, IMainState> {
   showStoriesByPage(): IItem[] {
     const start = (this.state.pageNumber == 0) ? 0 : this.state.pageNumber * this.state.postsPerpage;
     let spliceArray = [...this.state.stories];
-
-    for (var i = 0; i < spliceArray.length; i++) {
-      spliceArray[i].index = i + 1;
-    }
+    
     //Add index property to every story to be visible for user
+    spliceArray.map((row, index) => {row.index = index + 1;})
+    
     return spliceArray.splice(start, this.state.postsPerpage);
   }
 
