@@ -17,7 +17,7 @@ const routing = (
             <div className="app__container">
                 <Header />
                 <div className="app__content">
-                    <Route exact path="/" component={Main}/>
+                    <Route exact path="/" component={Main} />
                     <Route path="/comments/" component={Comments} />
                 </div>
             </div>

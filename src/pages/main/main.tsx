@@ -102,10 +102,10 @@ class Main extends Component<RouteComponentProps, IMainState> {
   showStoriesByPage(): IItem[] {
     const start = (this.state.pageNumber == 0) ? 0 : this.state.pageNumber * this.state.postsPerpage;
     let spliceArray = [...this.state.stories];
-    
+
     //Add index property to every story to be visible for user
-    spliceArray.map((row, index) => {row.index = index + 1;})
-    
+    spliceArray.map((row, index) => { row.index = index + 1; })
+
     return spliceArray.splice(start, this.state.postsPerpage);
   }
 
@@ -138,9 +138,9 @@ class Main extends Component<RouteComponentProps, IMainState> {
 
     return (
       <div className="main">
-        {content}
-        <Paginator pageNumber={this.state.pageNumber} decrementPageNumber={this.decrementPageNumber}
-          incrementPageNumber={this.incrementPageNumber} />
+         {content}
+         <Paginator pageNumber={this.state.pageNumber} decrementPageNumber={this.decrementPageNumber}
+          incrementPageNumber={this.incrementPageNumber} /> 
       </div>
     );
   }

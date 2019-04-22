@@ -42,3 +42,36 @@
     }
 
 }
+
+@media only screen and (max-width: 600px) {
+    .comments {
+        padding-top: 16px;
+    
+        &__load {
+            cursor: pointer;
+        }
+        h3 {
+            margin: 0;
+            opacity: 0.6;
+        }
+        h2 {
+            margin: 0;
+        }
+    
+        ul {
+            padding: 0;
+            align-items: center;
+            li {
+                width: 95%;
+                padding: 5px;
+                word-break: break-word;
+
+                p {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    
+    }
+  }

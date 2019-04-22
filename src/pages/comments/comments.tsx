@@ -35,8 +35,6 @@ class Comments extends Component<RouteComponentProps, ICommentsState> {
         } else if (firstChildIndex != null && secondChildIndex !== undefined) {
             story.comments[firstChildIndex].comments[secondChildIndex].comments = comments;
         }
-
-        //They say this breaks every rule :)
         this.setState(state => ({ story: story }))
     }
 

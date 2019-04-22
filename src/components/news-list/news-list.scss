@@ -46,3 +46,25 @@
 
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .news-list {
+     padding: 0;
+     &__item {
+        display: flex;
+        flex-direction: column;
+        a {
+            padding: 5px;
+        }
+         p {
+             padding: 5px;
+         }
+
+    }
+
+     &__item__index {
+        display: none;
+     }
+
+    }
+  }
