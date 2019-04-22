@@ -2,7 +2,7 @@
 //TODO: In a real application separate the utils to own files
 export default class Utils {
     
-    static unixTimeToString(millisec: number){
+    static unixTimeToString(millisec: number): string{
            
             // Months array
             var months_arr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
