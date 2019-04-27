@@ -10,7 +10,7 @@ import logo from './logo.svg';
 import './main.scss';
 
 
-class Main extends Component<RouteComponentProps, IMainState> {
+export default class Main extends Component<RouteComponentProps, IMainState> {
 
   private hackerNewsService: HackerNewsService;
 
@@ -24,7 +24,7 @@ class Main extends Component<RouteComponentProps, IMainState> {
       stories: [],
       pageNumber: 0,
       postsPerpage: 30,
-      loading: false,
+      loading: false
     };
 
     //Bind the methods that are going to be passed to child components
@@ -35,9 +35,23 @@ class Main extends Component<RouteComponentProps, IMainState> {
 
   }
 
+  // Perform async operations here since its a good practise to perform async state modifiyng operations in lifecycle methods
   componentDidMount() {
     this.getBestStoriesIdList();
   }
+
+  //TODO: In a real world application make the API call cancellable so that we wont try 
+  //to set a state of unmounted component and cancel them here (and by a button / user action if wanted)
+  //
+  // componentWillUnmount(){
+
+  // }
+
+  //TODO: implement a check here to see if the state data has changed => no need for dom rendering 
+  // checks => massive improvement in performance => seems to be fairly easy to do with immutable.js for example
+  //shouldComponentUpdate(){
+  //}
+
 
   async getBestStoriesIdList() {
 
@@ -85,6 +99,7 @@ class Main extends Component<RouteComponentProps, IMainState> {
       //setState is async so use a callback function to make sure state has changed before going forward
       this.setState({ pageNumber: this.state.pageNumber - 1 }, () => {
         //After updating the pagenumber download the stories
+        //TODO: should be moved to lifecycle methods
         this.getStoriesByPageNumber(this.state.pageNumber);
       });
     }
@@ -94,6 +109,7 @@ class Main extends Component<RouteComponentProps, IMainState> {
       //setState is async so use a callback function to make sure state has changed before going forward
       this.setState({ pageNumber: this.state.pageNumber + 1 }, () => {
         //After updating the pagenumber download the stories
+        //TODO: should be moved to lifecycle methods
         this.getStoriesByPageNumber(this.state.pageNumber);
       });
     }
@@ -145,5 +161,3 @@ class Main extends Component<RouteComponentProps, IMainState> {
     );
   }
 }
-
-export default Main;

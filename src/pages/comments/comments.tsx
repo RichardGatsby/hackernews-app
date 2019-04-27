@@ -8,7 +8,7 @@ import Utils from '../../utilities/utils';
 import './comments.scss';
 
 
-class Comments extends Component<RouteComponentProps, ICommentsState> {
+export default class Comments extends Component<RouteComponentProps, ICommentsState> {
 
     private hackerNewsService: HackerNewsService;
 
@@ -83,5 +83,3 @@ class Comments extends Component<RouteComponentProps, ICommentsState> {
         )
     }
 }
-
-export default Comments;
