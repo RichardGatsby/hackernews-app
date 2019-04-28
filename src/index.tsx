@@ -8,7 +8,7 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 // TODO: The app currently has no high level state management (meaning the Main components state will reset on navigation)
-// to fix this we should implement redux or
+// to fix this we should implement flux pattern (action->dispatcher -> store -> view) / use redux or
 // introduce higher root level component to hold the state
 // TODO: Use the es6 class syntax here also since its used everywhere else
 const routing = (
