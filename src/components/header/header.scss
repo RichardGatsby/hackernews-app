@@ -5,8 +5,6 @@
     justify-content: center;
 
     &__logo {
-        // background-image: url("../../logo.png");
-        // background-repeat: no-repeat;
         width: 430px;
         height: 100px;
     }
@@ -15,11 +13,7 @@
 @media only screen and (max-width: 600px) {
     .header {
         &__logo {
-            // background-image: url("../../logo.png");
-            // background-repeat: no-repeat;
-        //    img {width: 300px;} 
            width: 300px;
-            // height: 100px;
         }
     }
   }

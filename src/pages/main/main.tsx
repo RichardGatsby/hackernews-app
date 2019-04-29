@@ -24,10 +24,11 @@ export default class Main extends Component<RouteComponentProps, IMainState> {
       stories: [],
       pageNumber: 0,
       postsPerpage: 30,
+      // TODO: Should be renamed isLoading to be more understable according to clean coding standards
       loading: false
     };
 
-    //Bind the methods that are going to be passed to child components
+    //Bind the this to methods that are going to be passed to child components
     this.incrementPageNumber = this.incrementPageNumber.bind(this);
     this.decrementPageNumber = this.decrementPageNumber.bind(this);
     this.showStoriesByPage = this.showStoriesByPage.bind(this);
